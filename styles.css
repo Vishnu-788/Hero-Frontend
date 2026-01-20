@@ -13,12 +13,15 @@
     font-style: normal;
     font-display: swap;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
 :root {
     --nav-height: 64px;
 }
-
-
  /*HEADER*/
 
 .navbar {
@@ -61,29 +64,53 @@
     background-color: #ccc;
 }
 
-/*Article*/
-
-#myVideo {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    z-index: 0;
+@media screen and (max-width: 1204px) {
+    .navbar-list-items{
+        display: none;
+    }
 }
 
+/* ----------------------------Main section--------------------------------- */
+main {
+    height: calc(100vh - 64px); /*Calculating the remaining height excluding Navbar height.*/
+}
+.parallax {
+    height: 100%;
+    position: relative;
+}
 
-article {
+.parallax-video {
+    position: fixed;
+    top: 64px;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    z-index: -1;
+}
+
+.transparent-container {
+    background: transparent;
+    position: relative;
+    top: 93%;
+}
+
+.transparent-container > .d-flex > div {
+    height: 5rem;
+}
+
+.transparent-container > .d-flex > div:first-child {
+    width: 45%;
+    background-color: black;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 80% 0%);
+}
+
+.transparent-container > .d-flex > div:last-child {
+    width: 55%;
+    background: transparent;
+}
+
+.black-container {
     background-color: black;
 }
 
-.hero-section {
-    position: relative;
-    padding: 3rem 0;
-    height: calc(100dvh - var(--nav-height));
-    margin-top: var(--nav-height);
-    overflow: hidden;
-}
 
